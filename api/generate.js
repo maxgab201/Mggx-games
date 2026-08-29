@@ -6,7 +6,7 @@
 import { json, safeError, requireAuth, enforceSameOrigin, enforceRateLimit, parseJsonBody } from './_lib.js';
 
 const NIM_ENDPOINT = 'https://integrate.api.nvidia.com/v1/chat/completions';
-const NIM_MODEL = 'meta/llama-3.1-8b-instruct';
+const NIM_MODEL = 'openai/gpt-oss-120b';
 const VALID_PLATFORMS = new Set(['pc', 'android']);
 
 export default async function handler(req, res) {
