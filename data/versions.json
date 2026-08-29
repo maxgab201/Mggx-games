@@ -118,6 +118,39 @@
               "d": "La app te avisará automáticamente cuando haya nuevas mejoras de velocidad en GitHub."
             }
           ]
+        },
+        {
+          "id": "autoclicker-pc-v2.0.1-mtf1df72",
+          "platform": "pc",
+          "version": "v2.0.1",
+          "title": "ULTIMATE TRIGGER UPDATE",
+          "note": "Control absoluto de tu hardware. Soporte completo para botones laterales de mouses gamer y nuevos sistemas de seguridad anti-loops.",
+          "url": "https://github.com/maxgab201/Gas-Station-Simulator-3D/releases/download/v2.0.1/Autoclicker_Pro_Setup.exe",
+          "date": "Agosto 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "NUEVO",
+              "d": "Asignación de cualquier botón del mouse como disparador (Izquierdo, Derecho, Central, Lateral 1 y Lateral 2)."
+            },
+            {
+              "t": "SEGURIDAD",
+              "d": "Advertencia y confirmación obligatoria al asignar el clic izquierdo para evitar loops accidentales."
+            },
+            {
+              "t": "MEJORA",
+              "d": "Sistema Anti-rebote (0.35s) para evitar capturas erróneas al abrir el menú."
+            },
+            {
+              "t": "UI",
+              "d": "Opción rápida para cancelar la captura presionando la tecla ESC."
+            },
+            {
+              "t": "UI",
+              "d": "Nombres de botones normalizados y textos de diálogo más claros."
+            }
+          ]
         }
       ]
     },
