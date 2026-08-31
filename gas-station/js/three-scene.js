@@ -15,7 +15,7 @@
 //  celular en vertical.
 // ============================================================
 
-import { THREE, createScene, REDUCE_MOTION, pointToNDC } from '../../js/3d/scene-runtime.js';
+import { THREE, createScene, REDUCE_MOTION, IS_COARSE_POINTER, pointToNDC } from '../../js/3d/scene-runtime.js';
 import { buildGasPump, buildCar, buildFloatingParticles } from '../../js/3d/geo-builders.js';
 
 const ACCENT = 0xffa500;
@@ -122,7 +122,14 @@ export function initGasStationScene(containerId = 'three-container') {
                 { mesh: car2, speed: 1.6, dir: -1, resetX: 14, endX: -14 },
             ];
 
-            const particles = buildFloatingParticles({ count: REDUCE_MOTION ? 20 : 90, radius: 9, color: ACCENT, size: 0.03 });
+            // En celular la nube se ve tan densa/gorda como en desktop
+            // apretada en una pantalla mucho más chica — igual que las
+            // partículas del hero compartido (ver hero-scene.js), se
+            // reduce cantidad y tamaño en dispositivos de puntero grueso.
+            const particles = buildFloatingParticles({
+                count: REDUCE_MOTION ? 20 : (IS_COARSE_POINTER ? 55 : 90),
+                radius: 9, color: ACCENT, size: IS_COARSE_POINTER ? 0.022 : 0.03,
+            });
             particles.position.y = 2;
             ctx.scene.add(particles);
             ctx.ambientParticles = particles;

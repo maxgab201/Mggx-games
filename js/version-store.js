@@ -38,7 +38,11 @@ export const ready = fetchCatalog().then(projects => { PROJECTS = projects; });
 
 // --- Orden semántico de versiones ("0.7.2a" > "0.7.1") -----
 function versionKey(v) {
-    return String(v.version || '')
+    // Se guarda sin prefijo "v" (ver sanitizeVersion en api/versions.js),
+    // pero por las dudas de que algún dato viejo/externo la tenga, se
+    // tolera acá también — sin este strip, "v2.0.1" se leía como versión
+    // "0" y terminaba ordenada última en vez de primera.
+    return String(v.version || '').replace(/^v/i, '')
         .split(/[.\-]/)
         .map(part => {
             const n = parseInt(part, 10);
