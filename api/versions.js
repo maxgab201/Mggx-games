@@ -103,7 +103,13 @@ function sanitizeVersion(raw, project, keepId = null) {
     if (!raw || typeof raw !== 'object') return { error: 'Datos de versión inválidos.' };
     const platform = project.platforms.includes(raw.platform) ? raw.platform : null;
     if (!platform) return { error: 'Plataforma inválida para este proyecto.' };
-    const version = String(raw.version || '').trim().slice(0, 40);
+    // Se acepta "v2.0.1" como input (convención común al tipear a mano)
+    // pero se guarda sin el prefijo: el resto del sitio ya antepone la "v"
+    // al mostrar la versión (ver `v${version}` en admin.js/versions-init.js),
+    // así que guardarla con "v" incluida termina mostrando "vv2.0.1" — y
+    // además rompe el orden numérico en compareVersions (js/version-store.js),
+    // que no reconoce una letra al principio del número de versión.
+    const version = String(raw.version || '').trim().replace(/^v/i, '').slice(0, 40);
     const title = String(raw.title || '').trim().toUpperCase().slice(0, 60);
     const note = String(raw.note || '').trim().slice(0, 200);
     const url = String(raw.url || '').trim().slice(0, 500);

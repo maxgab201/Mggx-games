@@ -10,7 +10,7 @@
 //  touch.
 // ============================================================
 
-import { THREE, createScene, REDUCE_MOTION, pointToNDC } from './scene-runtime.js';
+import { THREE, createScene, REDUCE_MOTION, IS_COARSE_POINTER, pointToNDC } from './scene-runtime.js';
 
 /**
  * @param {string} canvasId
@@ -46,7 +46,16 @@ export function initHeroScene(canvasId, opts = {}) {
     let iconHit = null;
     let pulseT = 0;
 
-    const COUNT = REDUCE_MOTION ? Math.min(particleCount, 200) : particleCount;
+    // La cantidad y el tamaño de partícula se calibraron mirando un
+    // monitor de escritorio. En un celular la pantalla física es mucho
+    // más chica pero el conteo/tamaño en world-units no cambiaba con
+    // nada — el resultado era una nube tan densa y "gorda" como en
+    // desktop apretada en una fracción de la superficie, mucho más
+    // saturada de lo que se ve bien en una pantalla chica. Bajarla ~45%
+    // y achicar el punto ~25% en dispositivos de puntero grueso
+    // (celular/tablet) sin tocar nada en desktop.
+    const COUNT = REDUCE_MOTION ? Math.min(particleCount, 200) : Math.round(particleCount * (IS_COARSE_POINTER ? 0.55 : 1));
+    const PARTICLE_SIZE = IS_COARSE_POINTER ? 0.034 : 0.045;
     const positions = new Float32Array(COUNT * 3);
     const origPositions = new Float32Array(COUNT * 3);
     const velocities = new Float32Array(COUNT * 3);
@@ -68,7 +77,7 @@ export function initHeroScene(canvasId, opts = {}) {
             const geo = new THREE.BufferGeometry();
             geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
             const mat = new THREE.PointsMaterial({
-                color, size: 0.045, transparent: true, opacity: 0.7, sizeAttenuation: true,
+                color, size: PARTICLE_SIZE, transparent: true, opacity: 0.7, sizeAttenuation: true,
             });
             ctx.points = new THREE.Points(geo, mat);
             ctx.scene.add(ctx.points);
