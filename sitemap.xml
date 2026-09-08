@@ -31,6 +31,11 @@
         <priority>0.8</priority>
     </url>
     <url>
+        <loc>https://mggx-games.xyz/laberinto/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
         <loc>https://mggx-games.xyz/terminos/</loc>
         <changefreq>yearly</changefreq>
         <priority>0.3</priority>

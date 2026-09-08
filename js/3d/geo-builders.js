@@ -271,6 +271,71 @@ export function buildMedicCross({ color = 0x7ac74f } = {}) {
     return group;
 }
 
+// ------------------------------------------------------------
+// LABERINTO EN ESPIRAL (MGGX Laberinto) — placa de piedra oscura
+// con un espiral cuadrado de barras encendidas y un "eco" flotando
+// en el centro, calcado del ícono real de la app (que a su vez es
+// la única pieza de arte del juego que no se genera en runtime).
+// El espiral se calcula caminando en cuadrado hacia afuera, no con
+// una lista de coordenadas escritas a mano: cambiando `turns` sale
+// un laberinto más grande sin tocar nada más.
+// ------------------------------------------------------------
+export function buildMaze({ color = 0xffa24b } = {}) {
+    const group = new THREE.Group();
+
+    const STEP = 0.3;        // separación entre vueltas del espiral
+    const BAR = 0.13;        // grosor de la barra
+    const DEPTH = 0.2;       // alto de la barra (le da cuerpo al girar)
+    const SEGMENTS = 7;      // tramos rectos: más tramos = más vueltas
+
+    // Espiral cuadrado desde el centro hacia afuera: se avanza en una
+    // dirección, se dobla 90°, y cada dos tramos el largo crece un paso.
+    const dirs = [[1, 0], [0, 1], [-1, 0], [0, -1]];
+    const pts = [[0, 0]];
+    let px = 0, py = 0, segLen = 1;
+    for (let i = 0; i < SEGMENTS; i++) {
+        const [dx, dy] = dirs[i % 4];
+        px += dx * segLen * STEP;
+        py += dy * segLen * STEP;
+        pts.push([px, py]);
+        if (i % 2 === 1) segLen++;
+    }
+
+    // Centrado real sobre el bounding box del recorrido: el espiral
+    // arranca en (0,0) pero crece hacia un lado, así que sin esto el
+    // ícono giraría descentrado respecto de su propio eje.
+    const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+    const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+    const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+
+    // emissiveIntensity contenida a propósito: con el bloom del runtime
+    // (ver scene-runtime.js) un valor alto satura las barras a blanco y
+    // el laberinto pierde el ámbar de antorcha que lo identifica.
+    const barMat = stdMat(color, { roughness: 0.35, metalness: 0.25, emissive: color, emissiveIntensity: 0.38 });
+    for (let i = 0; i < pts.length - 1; i++) {
+        const [x1, y1] = pts[i], [x2, y2] = pts[i + 1];
+        const horizontal = Math.abs(x2 - x1) > Math.abs(y2 - y1);
+        // +BAR en el largo para que las esquinas cierren sin agujero.
+        const len = Math.abs(horizontal ? x2 - x1 : y2 - y1) + BAR;
+        const geo = horizontal
+            ? new THREE.BoxGeometry(len, BAR, DEPTH)
+            : new THREE.BoxGeometry(BAR, len, DEPTH);
+        group.add(mesh(geo, barMat, { x: (x1 + x2) / 2 - cx, y: (y1 + y2) / 2 - cy }));
+    }
+
+    // El "eco" del centro: la moneda que se junta en el juego.
+    const ecoMat = stdMat(0xffe0b0, { roughness: 0.15, metalness: 0.1, emissive: 0xffc58a, emissiveIntensity: 0.85 });
+    group.add(mesh(new THREE.SphereGeometry(0.11, 16, 12), ecoMat, { x: -cx, y: -cy, z: 0.02 }));
+
+    // Placa de piedra de fondo: la paleta de "roca de cueva" de la app.
+    const w = Math.max(...xs) - Math.min(...xs) + STEP * 2;
+    const h = Math.max(...ys) - Math.min(...ys) + STEP * 2;
+    const slabMat = stdMat(0x16130f, { roughness: 0.9, metalness: 0.05 });
+    group.add(mesh(new THREE.BoxGeometry(w, h, DEPTH * 0.7), slabMat, { z: -DEPTH * 0.75 }));
+
+    return group;
+}
+
 /** Nube de partículas tipo "combustible flotando" — puntos con leve deriva. */
 export function buildFloatingParticles({ count = 60, radius = 6, color = 0xffa500, size = 0.045 } = {}) {
     const positions = new Float32Array(count * 3);

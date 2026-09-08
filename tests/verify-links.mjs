@@ -43,7 +43,7 @@ for (const [ctxLabel, ctxOpts] of [
     await clickAndExpect(page, '.terms-link', '/terminos/', `${ctxLabel} autoclicker Términos y Condiciones`);
     await page.close();
 
-    for (const proj of ['autoclicker', 'gas-station', 'wtsapp', 'craft-book', 'modmedic']) {
+    for (const proj of ['autoclicker', 'gas-station', 'wtsapp', 'craft-book', 'modmedic', 'laberinto']) {
         page = await context.newPage();
         await page.goto(`${BASE}/${proj}/`, { waitUntil: 'domcontentloaded' });
         await page.waitForTimeout(1200);

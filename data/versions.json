@@ -855,6 +855,316 @@
           ]
         }
       ]
+    },
+    {
+      "id": "laberinto",
+      "name": "MGGX Laberinto",
+      "page": "laberinto/",
+      "color": "#FFA24B",
+      "platforms": [
+        "android"
+      ],
+      "versions": [
+        {
+          "id": "lab-1.0.0",
+          "platform": "android",
+          "version": "1.0.0",
+          "title": "LANZAMIENTO INICIAL",
+          "note": "El primer descenso: laberintos siempre resolubles, cueva 3D procedural y todo generado por código.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.0/MGGX-Laberinto-1.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "LABERINTOS RESOLUBLES",
+              "d": "Cada nivel se genera en el momento y crece con la profundidad, siempre con salida garantizada."
+            },
+            {
+              "t": "CUEVA PROCEDURAL",
+              "d": "Texturas generadas por código, normal mapping, niebla y antorcha con titileo. Ni un archivo de arte."
+            },
+            {
+              "t": "BRAZOS EN PRIMERA PERSONA",
+              "d": "Manos modeladas por código, con cinco dedos, que se balancean al caminar."
+            },
+            {
+              "t": "TIENDA Y ECONOMÍA",
+              "d": "61 objetos con efectos únicos y dos monedas propias: Ecos y Vetagris."
+            },
+            {
+              "t": "AUDIO SINTETIZADO",
+              "d": "Música y efectos generados en tiempo real. Sin un solo mp3."
+            },
+            {
+              "t": "CONTROLES COMPLETOS",
+              "d": "Táctiles y soporte total de mando, también para navegar los menús."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.1.0",
+          "platform": "android",
+          "version": "1.1.0",
+          "title": "BOCA DE LA CUEVA",
+          "note": "Controles arreglados (el eje X estaba invertido), reinicio de nivel estable y aguante a la pérdida del contexto de OpenGL.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.1.0/MGGX-Laberinto-1.1.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "CONTROLES ARREGLADOS",
+              "d": "El eje X estaba invertido: caminar de costado y girar la cámara respondían al lado contrario."
+            },
+            {
+              "t": "REINICIO ESTABLE",
+              "d": "Cada nivel tiene semilla fija, así que Reintentar repite el mismo laberinto en vez de tirar otro."
+            },
+            {
+              "t": "AGUANTA LA PANTALLA APAGADA",
+              "d": "La cueva sobrevive a la pérdida del contexto de OpenGL (cambio de app, pantalla apagada) sin quedar en negro."
+            },
+            {
+              "t": "TERMINACIÓN VISUAL",
+              "d": "Vetas de mineral, brazos y manos con mejor acabado, ajustados con el juego a la vista."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.2.0",
+          "platform": "android",
+          "version": "1.2.0",
+          "title": "GALERÍAS DE MUSGO",
+          "note": "La cueva deja de ser plana: relieve, 8 poderes permanentes, bichos con IA propia, 4 biomas nuevos y lobby en 3D.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.2.0/MGGX-Laberinto-1.2.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "RELIEVE DE VERDAD",
+              "d": "Agacharse, saltar y subir y bajar por escaleras de madera. La cueva ya no es plana."
+            },
+            {
+              "t": "8 PODERES PERMANENTES",
+              "d": "Linterna de carburo, reptador, pies de cabra, ojo de la veta, pico eterno, memoria de la sima, corazón de la cueva y paso de sombra."
+            },
+            {
+              "t": "BICHOS CON CABEZA PROPIA",
+              "d": "Murciélagos, rastreros ciegos y guardianes de roca que persiguen doblando esquinas de verdad."
+            },
+            {
+              "t": "4 BIOMAS NUEVOS",
+              "d": "Mina abandonada, cisternas anegadas, bosque de esporas y templo sepultado."
+            },
+            {
+              "t": "6 SKINS DE JUGADOR",
+              "d": "Aspectos del personaje independientes de los guantes que lleves."
+            },
+            {
+              "t": "LOBBY EN 3D",
+              "d": "Detrás de los paneles se ve, en vivo, la cueva a la que vas a bajar."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.3.0",
+          "platform": "android",
+          "version": "1.3.0",
+          "title": "CAVERNAS DE CUARZO",
+          "note": "Ahora se puede pelear: cada bicho tiene vida, el golpe empuja y aturde, y la cueva se ilumina con luces de verdad.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.3.0/MGGX-Laberinto-1.3.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "COMBATE REAL",
+              "d": "Cada bicho tiene su vida, el golpe los empuja y los aturde, y al voltearlos sueltan ecos."
+            },
+            {
+              "t": "ARMAS EN LA TIENDA",
+              "d": "Sin comprar nada se pega a mano limpia; en la tienda hay garrote, pico, aguijón, maza y hacha de vetagris."
+            },
+            {
+              "t": "ILUMINACIÓN REAL",
+              "d": "Antorchas, racimos de cristal, hongos y la salida son luces que alumbran la roca, no manchas que brillan."
+            },
+            {
+              "t": "FIX DE TIENDA",
+              "d": "Lo comprado ahora siempre aparece disponible para usar."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.3.1",
+          "platform": "android",
+          "version": "1.3.1",
+          "title": "SIMA HELADA",
+          "note": "El tutorial de Primeros pasos no se podía cerrar en pantallas chicas: el botón quedaba fuera de la vista.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.3.1/MGGX-Laberinto-1.3.1.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "TUTORIAL QUE SE PUEDE CERRAR",
+              "d": "En pantallas chicas el botón de cerrar quedaba fuera de la vista. Ahora el tutorial scrollea adentro y el botón queda siempre fijo y visible."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.3.2",
+          "platform": "android",
+          "version": "1.3.2",
+          "title": "CORREDORES DE OBSIDIANA",
+          "note": "Tanda de arreglos: los bichos volvieron a morder, proporciones corregidas y el golpe del brazo se ve como un golpe.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.3.2/MGGX-Laberinto-1.3.2.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "LOS BICHOS VUELVEN A MORDER",
+              "d": "Un bug de scope hacía que un efecto de trampas sin efecto también anulara sus mordidas."
+            },
+            {
+              "t": "MARCAS DE TIZA VISIBLES",
+              "d": "Ya no quedan enterradas debajo del piso real de la cueva."
+            },
+            {
+              "t": "PROPORCIONES CORREGIDAS",
+              "d": "Monedas, estalactitas, estalagmitas y la llama de las antorchas quedaron con el tamaño correcto."
+            },
+            {
+              "t": "EL GOLPE SE VE COMO UN GOLPE",
+              "d": "Antes el puño se acercaba a la cámara en vez de alejarse hacia el objetivo."
+            },
+            {
+              "t": "HUD MÁS CONSISTENTE",
+              "d": "La pestaña Arma de Equipo, las pestañas que se achicaban de texto sin reducir la fuente y varios tamaños del HUD."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.4.0",
+          "platform": "android",
+          "version": "1.4.0",
+          "title": "CORAZÓN DE VETAGRIS",
+          "note": "Los túneles dejan de ser una fila de cajas: sección ovalada, roca continua y un modelo propio para cada bicho y estructura.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.4.0/MGGX-Laberinto-1.4.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "CUEVA REDONDA DE VERDAD",
+              "d": "La sección de los túneles ahora es ovalada y la roca corre continua, sin aristas duras cada 3 metros."
+            },
+            {
+              "t": "UN MODELO POR BICHO",
+              "d": "Murciélagos, rastreros y guardianes dejan de compartir las formas genéricas del resto de la cueva."
+            },
+            {
+              "t": "UN MODELO POR ESTRUCTURA",
+              "d": "Antorchas, cofres, cristales, hongos, pinches y estaciones de carburo con forma propia. La antorcha además se apoya contra la pared en vez de flotar."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.5.0",
+          "platform": "android",
+          "version": "1.5.0",
+          "title": "POZOS DE AZUFRE",
+          "note": "Multijugador terminado: bajás acompañado con código de sala de 4 letras, en modo carrera o cooperativo.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.5.0/MGGX-Laberinto-1.5.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "BAJAR ACOMPAÑADO",
+              "d": "Armá una sala con un código de 4 letras para dictar, o entrá con uno."
+            },
+            {
+              "t": "MODO CARRERA",
+              "d": "El primero que encuentra la salida gana."
+            },
+            {
+              "t": "MODO COOPERATIVO",
+              "d": "Se comparten los ecos y se pueden levantar entre ustedes."
+            },
+            {
+              "t": "EL LABERINTO NO VIAJA POR LA RED",
+              "d": "Con el nivel y una semilla los dos teléfonos arman exactamente la misma cueva. Por la red solo va dónde está cada uno y los hechos que cambian el mundo."
+            },
+            {
+              "t": "REQUIERE FIREBASE PROPIO",
+              "d": "Cada uno necesita su proyecto de Firebase configurado; sin eso, el modo solitario anda igual."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.5.1",
+          "platform": "android",
+          "version": "1.5.1",
+          "title": "VENAS DE MAGMA",
+          "note": "El cartel de error del multijugador culpaba siempre a tu conexión, aunque el problema real fuera otro.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.5.1/MGGX-Laberinto-1.5.1.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "ERRORES HONESTOS",
+              "d": "El cartel de no se pudo abrir la sala decía siempre que revisaras tu conexión a internet. Ahora dice el motivo de verdad."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.5.2",
+          "platform": "android",
+          "version": "1.5.2",
+          "title": "GRIETA DEL ECO",
+          "note": "El multijugador ahora anda de verdad en el APK publicado: las 1.5.0 y 1.5.1 salían sin la configuración de Firebase adentro.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.5.2/MGGX-Laberinto-1.5.2.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "MULTIJUGADOR QUE CONECTA",
+              "d": "Las releases 1.5.0 y 1.5.1 salían sin la configuración de Firebase por un detalle del proceso de compilación en GitHub Actions, así que el modo de a varios nunca podía conectar para quien las bajara."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.5.3",
+          "platform": "android",
+          "version": "1.5.3",
+          "title": "POZO SIN FONDO",
+          "note": "Los bichos ahora son los mismos para todos en una sala, y el salto del compañero por fin se ve.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.5.3/MGGX-Laberinto-1.5.3.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "BICHOS SINCRONIZADOS",
+              "d": "Los mueve el anfitrión de la sala y el resto los copia, en vez de que cada teléfono simule su propio movimiento por separado."
+            },
+            {
+              "t": "PERSIGUEN AL MÁS CERCANO",
+              "d": "Con más de un jugador cerca, cada bicho va por el que tenga más cerca y cambia de objetivo si se le escapa lejos."
+            },
+            {
+              "t": "EL SALTO VIAJA POR LA RED",
+              "d": "Antes el salto no se veía del lado del compañero en una partida de a varios."
+            }
+          ]
+        }
+      ]
     }
   ]
 }

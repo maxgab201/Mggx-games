@@ -46,19 +46,83 @@ export function initHeroScene(canvasId, opts = {}) {
     let iconHit = null;
     let pulseT = 0;
 
-    // La cantidad y el tamaño de partícula se calibraron mirando un
-    // monitor de escritorio. En un celular la pantalla física es mucho
-    // más chica pero el conteo/tamaño en world-units no cambiaba con
-    // nada — el resultado era una nube tan densa y "gorda" como en
-    // desktop apretada en una fracción de la superficie, mucho más
-    // saturada de lo que se ve bien en una pantalla chica. Bajarla ~45%
-    // y achicar el punto ~25% en dispositivos de puntero grueso
-    // (celular/tablet) sin tocar nada en desktop.
+    // En celular se bajó el conteo: la pantalla es mucho más chica y no
+    // hace falta la misma cantidad de puntos para leer la misma textura
+    // visual (y de paso rinde mejor en gama baja).
     const COUNT = REDUCE_MOTION ? Math.min(particleCount, 200) : Math.round(particleCount * (IS_COARSE_POINTER ? 0.55 : 1));
-    const PARTICLE_SIZE = IS_COARSE_POINTER ? 0.034 : 0.045;
+    const BASE_FOV = 60;
+
+    // Posiciones "normalizadas" (-0.5..0.5 en X/Y): la nube se guarda una
+    // sola vez con esta forma y después se ESCALA al tamaño que realmente
+    // ocupa la pantalla (ver applyLayout). Sin esto, la nube se armaba con
+    // una caja fija de 16x9 world-units — o sea, la proporción de un
+    // monitor — y en un celular en vertical, donde la cámara se aleja y el
+    // alto visible pasa a ~28 unidades, esos 9 de alto se veían como una
+    // FRANJA HORIZONTAL de partículas en el medio con vacío arriba y abajo:
+    // literalmente un rectángulo con forma de pantalla de PC pegado sobre
+    // una pantalla vertical.
+    const unitXY = new Float32Array(COUNT * 2);
     const positions = new Float32Array(COUNT * 3);
     const origPositions = new Float32Array(COUNT * 3);
     const velocities = new Float32Array(COUNT * 3);
+
+    const BASE_PARTICLE_SIZE = 0.045;
+    let particleScale = 1;
+    let pointsMat = null;
+    // Posición X efectiva del ícono: baseX en desktop, corrida hacia
+    // adentro en viewports angostos para que no se corte (ver applyLayout).
+    let layoutX = baseX;
+    let iconRadius = 0.9;
+
+    /**
+     * Redimensiona la nube al área que la cámara realmente ve, para el
+     * aspect ratio actual. La cámara se para a BASE_CAMERA_Z * responsiveScale
+     * (el runtime la aleja en viewports angostos), así que el alto visible
+     * sobre el plano z=0 es 2·tan(fov/2)·distancia y el ancho es ese alto
+     * por el aspect. Los márgenes cubren lo que se sale de ese plano: el
+     * parallax de cámara (±0.6 en x) y las partículas que están más lejos
+     * que z=0, que caen dentro de un frustum más ancho.
+     *
+     * `reset` posiciona las partículas de una en el layout nuevo (arranque);
+     * sin él solo se mueve el objetivo del resorte de onFrame, así que al
+     * rotar el celular la nube se re-acomoda con una transición suave en
+     * vez de saltar de golpe.
+     */
+    function applyLayout(aspect, reset = false) {
+        const responsive = Math.max(1, (1440 / 900) / aspect);
+        const dist = BASE_CAMERA_Z * responsive;
+        const visibleH = 2 * Math.tan((BASE_FOV / 2) * Math.PI / 180) * dist;
+        const spreadH = visibleH * 1.15;
+        const spreadW = visibleH * aspect * 1.2;
+        for (let i = 0; i < COUNT; i++) {
+            origPositions[i * 3] = unitXY[i * 2] * spreadW;
+            origPositions[i * 3 + 1] = unitXY[i * 2 + 1] * spreadH;
+            if (reset) {
+                positions[i * 3] = origPositions[i * 3];
+                positions[i * 3 + 1] = origPositions[i * 3 + 1];
+            }
+        }
+        // El punto se mide en world-units y sizeAttenuation lo encoge con la
+        // distancia: si no crece junto con lo lejos que se puso la cámara,
+        // en un celular queda como una mota de polvo casi invisible. Con
+        // este factor el punto conserva SU TAMAÑO EN PANTALLA, y el 0.85
+        // en táctil lo deja apenas más fino que en desktop a propósito.
+        particleScale = responsive * (IS_COARSE_POINTER ? 0.85 : 1);
+
+        // El ícono flotante se calibró a mano para el hero de dos columnas
+        // del desktop (bien a la izquierda, en el hueco que queda arriba de
+        // la portada). En un celular ese hueco no existe — el layout se
+        // apila — y además el ancho visible en world-units NO crece al
+        // alejar la cámara: se queda en ~13 unidades siempre. Con un offset
+        // de -5.6 el ícono quedaba pisando el borde y se cortaba al medio.
+        // Acá se lo empuja hacia adentro lo justo para que entre entero,
+        // sin tocar nada en desktop (donde el clamp no llega a actuar).
+        const iconDist = dist + Math.abs(baseZ);
+        const halfVisibleAtIcon = Math.tan((BASE_FOV / 2) * Math.PI / 180) * iconDist * aspect;
+        const margin = iconRadius + halfVisibleAtIcon * 0.04;
+        const maxX = Math.max(0, halfVisibleAtIcon - margin);
+        layoutX = Math.max(-maxX, Math.min(maxX, baseX));
+    }
 
     const scene3d = createScene(canvas, {
         cameraFov: 60,
@@ -67,19 +131,22 @@ export function initHeroScene(canvasId, opts = {}) {
             ctx.camera.position.set(0, 0, BASE_CAMERA_Z);
 
             for (let i = 0; i < COUNT; i++) {
-                const x = (Math.random() - 0.5) * 16;
-                const y = (Math.random() - 0.5) * 9;
+                unitXY[i * 2] = Math.random() - 0.5;
+                unitXY[i * 2 + 1] = Math.random() - 0.5;
                 const z = (Math.random() - 0.5) * 5 - 1;
-                positions[i * 3] = origPositions[i * 3] = x;
-                positions[i * 3 + 1] = origPositions[i * 3 + 1] = y;
                 positions[i * 3 + 2] = origPositions[i * 3 + 2] = z;
             }
+            // El runtime todavía no corrió su resize (pasa justo después de
+            // setup), así que el aspect inicial se lee del canvas.
+            applyLayout((canvas.clientWidth || 16) / (canvas.clientHeight || 9), true);
+
             const geo = new THREE.BufferGeometry();
             geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            const mat = new THREE.PointsMaterial({
-                color, size: PARTICLE_SIZE, transparent: true, opacity: 0.7, sizeAttenuation: true,
+            pointsMat = new THREE.PointsMaterial({
+                color, size: BASE_PARTICLE_SIZE * particleScale,
+                transparent: true, opacity: 0.7, sizeAttenuation: true,
             });
-            ctx.points = new THREE.Points(geo, mat);
+            ctx.points = new THREE.Points(geo, pointsMat);
             ctx.scene.add(ctx.points);
 
             ctx.scene.add(new THREE.AmbientLight(0xffffff, 0.7));
@@ -93,7 +160,14 @@ export function initHeroScene(canvasId, opts = {}) {
             if (iconBuilder) {
                 icon = iconBuilder(color);
                 icon.scale.setScalar(iconScale);
-                icon.position.set(baseX, baseY, baseZ);
+                // Radio real del ícono ya escalado: el clamp de applyLayout
+                // necesita saber cuánto ocupa para no cortarlo. Se usa la
+                // esfera que lo envuelve porque el ícono gira sobre su eje Y,
+                // así que su ancho proyectado cambia frame a frame.
+                const bounds = new THREE.Box3().setFromObject(icon).getBoundingSphere(new THREE.Sphere());
+                iconRadius = bounds.radius;
+                applyLayout(canvas.clientWidth / (canvas.clientHeight || 1));
+                icon.position.set(layoutX, baseY, baseZ);
                 ctx.scene.add(icon);
                 // Radio de impacto más grande que el propio ícono: en un
                 // celular el "dedo gordo" necesita un blanco más generoso
@@ -148,6 +222,12 @@ export function initHeroScene(canvasId, opts = {}) {
                 if (t) tryPulse(t.clientX, t.clientY);
             }, { passive: true });
         },
+        // Rotar el celular cambia el aspect: la nube se re-dimensiona al
+        // área visible nueva (y el resorte de onFrame la lleva ahí suave).
+        onResize(ctx) {
+            applyLayout(ctx.aspect);
+            if (pointsMat) pointsMat.size = BASE_PARTICLE_SIZE * particleScale;
+        },
         onFrame(ctx, dt, elapsed) {
             const raycaster = ctx._raycaster ?? (ctx._raycaster = new THREE.Raycaster());
             const mousePlane = ctx._mousePlane ?? (ctx._mousePlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0));
@@ -159,7 +239,14 @@ export function initHeroScene(canvasId, opts = {}) {
             if (points) {
                 const pos = points.geometry.attributes.position.array;
                 const mx = mouseWorld?.x ?? 999, my = mouseWorld?.y ?? 999, mz = mouseWorld?.z ?? 999;
-                const REPEL_RADIUS = 1.7, REPEL_STRENGTH = 0.2, SPRING = 0.02, DAMPING = 0.88;
+                // El radio se mide en world-units, igual que la nube: si no
+                // acompaña a lo que esta creció al alejarse la cámara, el
+                // "hueco" que abre el dedo en celular queda ridículamente
+                // chico contra la pantalla. REPEL_STRENGTH escala igual para
+                // que el empujón se sienta proporcional al hueco.
+                const REPEL_RADIUS = 1.7 * ctx.responsiveScale;
+                const REPEL_STRENGTH = 0.2 * ctx.responsiveScale;
+                const SPRING = 0.02, DAMPING = 0.88;
                 for (let i = 0; i < COUNT; i++) {
                     const ix = i * 3, iy = ix + 1, iz = ix + 2;
                     velocities[ix] += (origPositions[ix] - pos[ix]) * SPRING;
@@ -184,7 +271,7 @@ export function initHeroScene(canvasId, opts = {}) {
                 icon.rotation.y += dt * 0.35;
                 icon.rotation.x = Math.sin(elapsed * 0.4) * 0.12;
                 icon.position.y = baseY + Math.sin(elapsed * 0.8) * 0.12;
-                icon.position.x = baseX + ctx.pointer.x * 0.35;
+                icon.position.x = layoutX + ctx.pointer.x * 0.35;
 
                 if (pulseT > 0) {
                     pulseT = Math.max(0, pulseT - dt * 2.2);
