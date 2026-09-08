@@ -75,7 +75,7 @@ export function pointToNDC(canvas, clientX, clientY, out = new THREE.Vector2()) 
  * directamente fuera de cuadro en un celular, que es exactamente lo
  * que pasaba antes de este ajuste.
  */
-export function createScene(canvas, { setup, onFrame, cameraFov = 50, near = 0.1, far = 100, alpha = true, background = null, baseAspect = 1440 / 900, bloom = true, environment = true } = {}) {
+export function createScene(canvas, { setup, onFrame, onResize, cameraFov = 50, near = 0.1, far = 100, alpha = true, background = null, baseAspect = 1440 / 900, bloom = true, environment = true } = {}) {
     if (!canvas) return null;
 
     // WebGLRenderer tira una excepción (no devuelve null) si el navegador
@@ -153,6 +153,13 @@ export function createScene(canvas, { setup, onFrame, cameraFov = 50, near = 0.1
         // base (desktop normal o ultra-wide) el factor queda en 1 y la
         // composición calibrada a mano se ve exactamente como se diseñó.
         ctx.responsiveScale = Math.max(1, baseAspect / aspect);
+        ctx.aspect = aspect;
+        // Hook para lo que NO se puede resolver solo alejando la cámara:
+        // una nube de partículas, por ejemplo, ocupa un volumen fijo en
+        // coordenadas de mundo y hay que re-dimensionarla al aspect real
+        // del viewport (ver hero-scene.js). Se llama también en el primer
+        // resize, así que la escena queda bien desde el frame 1.
+        onResize?.(ctx, w, h);
     }
     resize();
     const resizeObserver = new ResizeObserver(resize);
