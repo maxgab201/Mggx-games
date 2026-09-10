@@ -1258,6 +1258,39 @@
               "d": "Se retiró la piedra de derrumbe que causaba daño sin comunicar con claridad que era una trampa."
             }
           ]
+        },
+        {
+          "id": "lab-1.7.2",
+          "platform": "android",
+          "version": "1.7.2",
+          "title": "EL PRIMER DESCENSO",
+          "note": "El nivel 1 ahora enseña jugando y el minimapa fue corregido y rediseñado para dejar de revelar caminos gratis.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.7.2/MGGX-Laberinto-1.7.2.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "NIVEL 1 CONVERTIDO EN TUTORIAL",
+              "d": "Mirar, caminar, correr, agacharse, saltar, pegar, juntar un eco, usar la linterna, mirar el mapa y encontrar la salida se aprenden haciendo cada acción."
+            },
+            {
+              "t": "MAPA SIN ESPEJO",
+              "d": "La izquierda y la derecha vuelven a coincidir con el juego: se corrigió la transformación que reflejaba los costados."
+            },
+            {
+              "t": "EXPLORACIÓN HONESTA",
+              "d": "El mapa solo descubre la casilla que pisás y sus paredes; la salida y el vetagris requieren sus objetos de tienda correspondientes."
+            },
+            {
+              "t": "MINIMAPA REDISEÑADO",
+              "d": "Nuevo radar redondo con túneles más claros, marcas cardinales, distancia atenuada, indicadores en el borde y jugador con forma de flecha."
+            },
+            {
+              "t": "PICO BIEN AGARRADO",
+              "d": "El arma ahora va levantada y el mango atraviesa el puño en la orientación correcta, sin cruzar los dedos."
+            }
+          ]
         }
       ]
     }
