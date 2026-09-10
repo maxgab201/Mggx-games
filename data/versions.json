@@ -1163,6 +1163,101 @@
               "d": "Antes el salto no se veía del lado del compañero en una partida de a varios."
             }
           ]
+        },
+        {
+          "id": "lab-1.6.0",
+          "platform": "android",
+          "version": "1.6.0",
+          "title": "MINA ABANDONADA",
+          "note": "Iluminación física, materiales renovados, mineros con modelo completo y partidas cooperativas que continúan entre niveles.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.6.0/MGGX-Laberinto-1.6.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "MATERIALES E ILUMINACIÓN FÍSICA",
+              "d": "La cueva estrena iluminación GGX, tonemapping fílmico, mapas normales, paralaje en calidad alta y rugosidad propia para cada material."
+            },
+            {
+              "t": "MINEROS CON CUERPO COMPLETO",
+              "d": "Tu personaje y los compañeros de sala ahora tienen piernas, abrigo y brazos, con el mismo nivel de detalle que los bichos y las estructuras."
+            },
+            {
+              "t": "COOPERATIVO SIN CORTES",
+              "d": "La sala permanece abierta al terminar un nivel y permite seguir bajando con el mismo compañero sin volver a compartir el código."
+            },
+            {
+              "t": "MINIMAPA RENOVADO",
+              "d": "Vuelve a actualizarse, rota con la cámara, distingue mejor paredes y caminos, y en cooperativo muestra dónde está tu compañero."
+            },
+            {
+              "t": "RED Y ESTABILIDAD",
+              "d": "Se corrigieron cuelgues, desincronizaciones de poses, latidos reiniciados, errores silenciosos de Firebase y coordenadas inválidas."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.7.0",
+          "platform": "android",
+          "version": "1.7.0",
+          "title": "CISTERNAS ANEGADAS",
+          "note": "Ajustes y minimapa reparados, cuevas más orgánicas, combate más claro y dos bichos nuevos.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.7.0/MGGX-Laberinto-1.7.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "INTERFAZ QUE RESPONDE",
+              "d": "Los ajustes se reflejan al tocarlos, el minimapa vuelve a moverse y los menús respetan pantallas chicas, notch y barra de gestos."
+            },
+            {
+              "t": "DOS BICHOS NUEVOS",
+              "d": "El Topo de veta corre más que vos y entra en las gateras; la Araña de sima acecha colgada a media altura."
+            },
+            {
+              "t": "COMBATE MÁS LEGIBLE",
+              "d": "El alcance de los golpes es más generoso, una mira marca cuándo un bicho está cerca y las trampas se ven antes de pisarlas."
+            },
+            {
+              "t": "CUEVAS MENOS CUADRICULADAS",
+              "d": "Hay más cámaras, más erosión, texturas más finas y mayor presencia de antorchas, cristales, hongos y entibado."
+            },
+            {
+              "t": "MOVIMIENTO Y COLISIONES",
+              "d": "Se corrigieron gateras, techos bajos y escaleras; los compañeros ahora animan brazos y piernas cuando caminan."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.7.1",
+          "platform": "android",
+          "version": "1.7.1",
+          "title": "BOSQUE DE ESPORAS",
+          "note": "Escaleras y manos corregidas, una trampa confusa eliminada y las cinco armas ahora se ven durante el combate.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.7.1/MGGX-Laberinto-1.7.1.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "ESCALERAS SIN ATRAVESAR LA ROCA",
+              "d": "Los escalones vuelven a frenar el cuerpo: ahora subís en el lugar y entrás al piso superior recién al llegar arriba."
+            },
+            {
+              "t": "ARMAS VISIBLES EN LA MANO",
+              "d": "Garrote, pico, aguijón, maza y hacha tienen su propia forma y material, y acompañan el envión de cada golpe."
+            },
+            {
+              "t": "MANOS BIEN ORIENTADAS",
+              "d": "Las manos ahora van verticales, con las palmas hacia el centro y los pulgares arriba."
+            },
+            {
+              "t": "TRAMPA CONFUSA ELIMINADA",
+              "d": "Se retiró la piedra de derrumbe que causaba daño sin comunicar con claridad que era una trampa."
+            }
+          ]
         }
       ]
     }
