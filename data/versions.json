@@ -1291,6 +1291,88 @@
               "d": "El arma ahora va levantada y el mango atraviesa el puño en la orientación correcta, sin cruzar los dedos."
             }
           ]
+        },
+        {
+          "id": "lab-1.8.0",
+          "platform": "android",
+          "version": "1.8.0",
+          "title": "AGUAS NEGRAS",
+          "note": "Agua que inunda los pozos y refleja las luces, una cueva bastante más oscura, roca sin patrón repetido y bastante menos batería.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.8.0/MGGX-Laberinto-1.8.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "AGUA EN LA CUEVA",
+              "d": "Desde el nivel 4, y más seguido cuanto más hondo bajás. Funciona como una napa: hay una altura y se llena todo lo que quede por debajo, así que los charcos caen solos en los pozos. Nunca tapa el paso (30 cm, menos que un escalón) ni moja el arranque o la salida."
+            },
+            {
+              "t": "EL AGUA REFLEJA LAS LUCES",
+              "d": "No con una segunda pasada de cámara — en un teléfono eso es duplicar el costo de dibujar la cueva — sino con lo que de verdad se refleja en un charco a oscuras: tu antorcha, las de la pared y los cristales, estirados en una columna temblorosa sobre el agua."
+            },
+            {
+              "t": "CHAPOTEAR HACE RUIDO",
+              "d": "Tanto como correr. Un tramo inundado es un tramo donde el sigilo no te sirve, y eso cambia por dónde elegís ir. El agua además frena un poco y se ve en el minimapa."
+            },
+            {
+              "t": "LA CUEVA ES MÁS OSCURA",
+              "d": "La antorcha alumbraba como un reflector y se veía hasta el fondo del pasillo. Ahora hay un círculo de luz alrededor tuyo y después penumbra, que es lo que hace que una antorcha lejana o un cristal signifiquen algo."
+            },
+            {
+              "t": "LA ROCA DEJÓ DE REPETIRSE",
+              "d": "La misma baldosa de 3 m se repetía por toda la cueva y de lejos se leía como una lámina fotocopiada. Ahora se mezclan dos muestras de la misma textura, una girada, con una máscara muy estirada: el ojo deja de encontrar el patrón."
+            },
+            {
+              "t": "MÁS RELIEVE EN LA PARED",
+              "d": "Más detalle pegado a la roca y relieve casi el doble de hondo. En calidad ultra, además, los bultos se hacen sombra entre sí."
+            },
+            {
+              "t": "LA PANTALLA YA NO QUEDA PRENDIDA",
+              "d": "La bandera se ponía al arrancar la app y no se sacaba nunca: dejabas el juego en la tienda y la pantalla seguía encendida hasta que se acababa la batería."
+            },
+            {
+              "t": "EL MULTIJUGADOR AVISA SIN INTERNET",
+              "d": "Firebase sin red no falla: encola lo que le pediste y promete mandarlo después, así que la sala se quedaba esperando para siempre sin cartel ni error. Ahora se pregunta si hay red antes y se avisa, aclarando que el resto del juego anda igual sin conexión."
+            },
+            {
+              "t": "MENOS BATERÍA",
+              "d": "El renderer le preguntaba al driver 3.700 veces por segundo la posición de unos uniforms que no cambian nunca, en pausa dibujaba 60 veces por segundo una escena congelada, y tiraba dos objetos por cuadro al recolector. Las texturas ahora se generan en cuatro hilos: el freezón al bajar a un bioma nuevo se redujo a menos de la mitad."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.9.0",
+          "platform": "android",
+          "version": "1.9.0",
+          "title": "POLVO EN EL AIRE",
+          "note": "Se ve lo que llevás en la mano, polvo flotando que revela el haz de la antorcha, liquen y humedad por bioma, y el compañero de sala rehecho.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.9.0/MGGX-Laberinto-1.9.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "SE VE LO QUE LLEVÁS EN LA MANO",
+              "d": "El pan, el mapa, el frasco, la antorcha, el ovillo del hilo, la brújula, la piedra y el vendaje, cada uno con su forma y su material: el frasco tiene el líquido adentro y el cuello transparente, la antorcha tiene llama viva, el pan tiene corteza y miga."
+            },
+            {
+              "t": "POLVO FLOTANDO EN EL AIRE",
+              "d": "Es lo único que le faltaba a la cueva para dejar de parecer un decorado, y encima es lo que deja VER el haz de la antorcha: hasta ahora solo se notaba cuando pegaba en una pared. Las motas no tienen color propio, solo se ven si les pega una luz."
+            },
+            {
+              "t": "LIQUEN Y HUMEDAD EN LAS PAREDES",
+              "d": "Regueros de agua que caen y pulen la roca (la zona mojada se ve más oscura y brilla más) y manchones de verdín que crecen en las grietas, que es donde se junta la humedad. Cada bioma tiene lo suyo: las Cisternas Anegadas chorrean, las Galerías de Musgo están tapizadas, y en las Venas de Magma no crece nada."
+            },
+            {
+              "t": "EL COMPAÑERO DE SALA, REHECHO",
+              "d": "Ahora tiene cabeza — con nariz, ceja y barba — y carga sus cosas: mochila con soga, cinturón y el pico colgado a la espalda. A diez metros en un pasillo oscuro no se ve ni la cara ni la ropa: se ve la silueta, y eso es lo que lo convierte en un minero y no en un maniquí."
+            },
+            {
+              "t": "LÁMPARA MONTADA EN EL CASCO",
+              "d": "Al frente, para que la luz salga de algo."
+            }
+          ]
         }
       ]
     }
