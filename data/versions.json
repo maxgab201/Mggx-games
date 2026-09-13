@@ -1373,6 +1373,109 @@
               "d": "Al frente, para que la luz salga de algo."
             }
           ]
+        },
+        {
+          "id": "lab-1.9.1",
+          "platform": "android",
+          "version": "1.9.1",
+          "title": "TALLER DE MODELADO",
+          "note": "El compañero, el casco, la cabeza, las cinco armas y los objetos de mano fueron remodelados y verificados con un nuevo visor de mallas.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.9.1/MGGX-Laberinto-1.9.1.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "COMPAÑERO CON PROPORCIONES HUMANAS",
+              "d": "El cuerpo dejó de ser un volumen redondo: ahora está achatado, con hombros, pecho y espalda mejor proporcionados."
+            },
+            {
+              "t": "CASCO Y CABEZA REMODELADOS",
+              "d": "El casco ahora es un domo ancho y bajo con ala, cresta, visera y farol; la cabeza es redonda e incluye orejas y una nariz visible de perfil."
+            },
+            {
+              "t": "CINCO ARMAS REHECHAS",
+              "d": "El pico tiene la cabeza arqueada, el hacha una hoja reconocible y el garrote una terminación cerrada, con mejores siluetas para todas las armas."
+            },
+            {
+              "t": "OBJETOS DE MANO RECONOCIBLES",
+              "d": "Se corrigieron las formas y proporciones de la antorcha, el mapa, la brújula, el ovillo y la venda."
+            },
+            {
+              "t": "VISOR DE MALLAS",
+              "d": "Un nuevo rasterizador por software permite revisar visualmente los modelos generados por código y detectar problemas que los tests numéricos no mostraban."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.9.2",
+          "platform": "android",
+          "version": "1.9.2",
+          "title": "CAZANDO FANTASMAS",
+          "note": "Once correcciones de lógica, multijugador y rendimiento: cronómetro preciso, aguante real, sigilo coherente y salas sincronizadas.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.9.2/MGGX-Laberinto-1.9.2.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "CRONÓMETRO INDEPENDIENTE DE LOS FPS",
+              "d": "El tiempo de cada recorrido ya no cambia según la tasa de cuadros del teléfono, así que los récords y bonus son comparables."
+            },
+            {
+              "t": "AGUANTE Y SIGILO CORREGIDOS",
+              "d": "El sprint se detiene cuando la barra llega a cero y los enemigos solo oyen una carrera cuando el personaje realmente está corriendo."
+            },
+            {
+              "t": "HILO DE ARIADNA COMPLETO",
+              "d": "El recorrido deja de cortarse en niveles grandes y desaparece cuando termina la duración indicada."
+            },
+            {
+              "t": "MULTIJUGADOR SIN ESTADOS FANTASMA",
+              "d": "Las salas se cierran al salir, quien entra tarde recibe monedas y paredes actualizadas, y el modo cooperativo se conserva entre niveles."
+            },
+            {
+              "t": "MENOS TRABAJO POR CUADRO",
+              "d": "Se eliminaron asignaciones innecesarias de memoria en la ruta de dibujo y se corrigió el ciclo de vida del audio."
+            }
+          ]
+        },
+        {
+          "id": "lab-1.9.3",
+          "platform": "android",
+          "version": "1.9.3",
+          "title": "APOYADO EN LA ROCA",
+          "note": "Antorchas, objetos y armas ahora coinciden con la geometría visible de la cueva; además se sumaron sombras de contacto.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.9.3/MGGX-Laberinto-1.9.3.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "ANTORCHAS PEGADAS A LA ROCA REAL",
+              "d": "Su posición se calcula contra la malla visible de la pared y respeta los techos bajos, en vez de usar el borde teórico de la casilla."
+            },
+            {
+              "t": "OBJETOS APOYADOS EN EL PISO",
+              "d": "Monedas, hongos, piedras y demás elementos siguen las irregularidades de la roca sin quedar flotando ni enterrados."
+            },
+            {
+              "t": "ARMAS Y MANOS REUBICADAS",
+              "d": "El pico cruza el cuadro en diagonal sin tapar la mira y el objeto de la mano izquierda vuelve a verse por delante del puño."
+            },
+            {
+              "t": "ANTORCHAS DE PAREDES DESTRUIDAS",
+              "d": "Al romper una pared con el pico también desaparece la antorcha que estaba colocada sobre ella."
+            },
+            {
+              "t": "SOMBRAS DE CONTACTO",
+              "d": "Una sombra suave bajo cada objeto refuerza su apoyo; en los murciélagos cambia de tamaño e intensidad según la altura de vuelo."
+            },
+            {
+              "t": "482 TESTS EN VERDE",
+              "d": "Las nuevas verificaciones miden contra la roca que realmente se dibuja y detectaron dos pruebas antiguas que validaban el plano teórico equivocado."
+            }
+          ]
         }
       ]
     }
