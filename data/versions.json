@@ -151,6 +151,35 @@
               "d": "Nombres de botones normalizados y textos de diálogo más claros."
             }
           ]
+        },
+        {
+          "id": "autoclicker-pc-3.0.0-mu1t9fhu",
+          "platform": "pc",
+          "version": "3.0.0",
+          "title": "ENGINE & PERFORMANCE UPDATE",
+          "note": "Reescritura del motor Raw Input para eliminar el lag y el alto consumo de CPU. Alcanzá ~400 CPS reales y estables a 1ms sin saturar tu sistema.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/v3.0.0/Autoclicker_Pro_Setup.exe",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "RENDIMIENTO",
+              "d": "Filtro de clics sintéticos implementado; el motor Raw Input ya no procesa los clics generados por la propia app."
+            },
+            {
+              "t": "RENDIMIENTO",
+              "d": "Eliminada la doble escucha del mouse; el tráfico ahora es 100% Raw Input."
+            },
+            {
+              "t": "OPTIMIZACIÓN",
+              "d": "Nuevo bucle de Sleep cooperativo para bajar drásticamente el uso de CPU manteniendo el clickeo extremo (1ms)."
+            },
+            {
+              "t": "FIX",
+              "d": "Reparado el modo \"Mantener presionado\" para que envíe una única señal de inicio y fin."
+            }
+          ]
         }
       ]
     },
