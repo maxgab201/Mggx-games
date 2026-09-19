@@ -1505,6 +1505,47 @@
               "d": "Las nuevas verificaciones miden contra la roca que realmente se dibuja y detectaron dos pruebas antiguas que validaban el plano teórico equivocado."
             }
           ]
+        },
+        {
+          "id": "lab-1.9.4",
+          "platform": "android",
+          "version": "1.9.4",
+          "title": "MIRARLES LA CARA",
+          "note": "Los cinco bichos se dibujaban entre 30% y 54% más chicos de lo que el juego los trata — medidos y corregidos, con las piernas y los ojos que les faltaban.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.9.4/MGGX-Laberinto-1.9.4.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "ESTABAS ESQUIVANDO UNA CAJA QUE NO VEÍAS",
+              "d": "Los cinco bichos se dibujaban entre un 30% y un 54% más chicos de lo que el juego los trata: alto y radio deciden por qué huecos entra un bicho y a qué distancia te muerde, y esos valores no coincidían con el modelo en pantalla."
+            },
+            {
+              "t": "EL GUARDIÁN DE ROCA TENÍA MEDIO CUERPO",
+              "d": "Torso, cabeza, brazos y nada abajo de la cintura: una estatua serruchada al ombligo, flotando 10 cm, de 1,31 m cuando el juego la trata como de 1,85. Ahora tiene piernas, pisa el piso y desde el ojo del jugador te saca una cabeza."
+            },
+            {
+              "t": "EL TOPO YA NO ES UN CHORIZO APLASTADO",
+              "d": "Antes 28 cm, flotando, con dos palas que salían de costado como aletas. Ahora es compacto, apoyado, y las palas rastrillan hacia abajo como las de un topo de verdad."
+            },
+            {
+              "t": "EL RASTRERO DEJÓ DE SER TRES PLATOS SUELTOS",
+              "d": "El caparazón ahora es un domo y las tres placas se leen como un cuerpo, no como piezas separadas."
+            },
+            {
+              "t": "LA ARAÑA Y EL MURCIÉLAGO, A SU TAMAÑO REAL",
+              "d": "El murciélago además recuperó los ojos, que se habían perdido en el camino."
+            },
+            {
+              "t": "LOS BICHOS YA PISAN SU PROPIA SOMBRA",
+              "d": "Caminaban sobre el plano teórico del mapa en vez de la roca dibujada, así que quedaban despegados de su propia sombra."
+            },
+            {
+              "t": "495 TESTS EN VERDE",
+              "d": "El armado de cada bicho ahora se puede fotografiar y medir en un test, que es lo que permitió encontrar todo esto — y de paso salieron seis arreglos más chicos, incluida una tabla que quedaba vieja al romper una pared con el pico."
+            }
+          ]
         }
       ]
     }
