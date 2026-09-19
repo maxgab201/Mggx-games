@@ -1546,6 +1546,80 @@
               "d": "El armado de cada bicho ahora se puede fotografiar y medir en un test, que es lo que permitió encontrar todo esto — y de paso salieron seis arreglos más chicos, incluida una tabla que quedaba vieja al romper una pared con el pico."
             }
           ]
+        },
+        {
+          "id": "lab-1.9.5",
+          "platform": "android",
+          "version": "1.9.5",
+          "title": "LA SALIDA",
+          "note": "El juego ahora tiene final: el nivel 999 sube por una galería corta hasta el patio de tu casa. De paso, la altura de la cueva pasa a salir de un terreno real en vez de repetirse pasillo por pasillo, y las trampas genéricas se modelaron por primera vez.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v1.9.5/MGGX-Laberinto-1.9.5.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "EL JUEGO AHORA TERMINA",
+              "d": "El nivel 999 es la última galería, corta a propósito: un zigzag que sube por escalones y escaleras hasta que se abre el techo y salís al aire libre, al patio de tu casa. La luz se va aclarando antes de ver la boca del túnel, igual que al salir de una cueva de verdad."
+            },
+            {
+              "t": "LA ALTURA SALE DE UN TERRENO REAL",
+              "d": "Antes se propagaba por los pasillos, no por el espacio: dos galerías separadas por una sola pared podían quedar a dos metros de desnivel. Ahora sale de un campo de terreno con zonas propias — un ala alta, una hondonada, una pendiente — y el agua suelta pasa a ser un lago en la parte baja."
+            },
+            {
+              "t": "GALERÍAS CON ALTURA PROPIA",
+              "d": "El techo era una constante de 3,40 m en toda la cueva. Ahora hay salones de 5,40 y galerías de 2,70, y lo que obligaba a agacharse bajó de casi un tercio del nivel a poco más de uno de cada diez."
+            },
+            {
+              "t": "LAS TRAMPAS, MODELADAS POR PRIMERA VEZ",
+              "d": "El pozo era un baúl (una caja negra de 39 cm); ahora es un agujero con brocal de piedras y tablas podridas. La tapa de los pinches era un durmiente de vías; ahora es una losa partida y hundida. El vapor salía de una forma genérica con bocanadas en diamante; ahora es una raja en la roca con costra mineral."
+            },
+            {
+              "t": "SE TERMINÓ DE MODELAR TODO LO GENÉRICO",
+              "d": "La vía de la vagoneta, las columnas de las ruinas (que llegaban a salirse por el techo) y el marco de entibado de la mina. El cubo y el cilindro genéricos ya no los usa nadie en toda la cueva."
+            },
+            {
+              "t": "526 TESTS EN VERDE",
+              "d": "Cada test nuevo se verificó al revés: con la geometría vieja tiene que fallar."
+            }
+          ]
+        },
+        {
+          "id": "lab-2.0.0",
+          "platform": "android",
+          "version": "2.0.0",
+          "title": "EL PATIO",
+          "note": "El patio final (agregado en la 1.9.5) tenía cielo gris, piso de roca y una casa sin techo. Esta versión es exclusivamente ese patio: cielo con sol y nubes, pasto, techo a dos aguas y cerros al fondo para darle escala.",
+          "url": "https://github.com/maxgab201/MGGX-Laberinto/releases/download/v2.0.0/MGGX-Laberinto-2.0.0.apk",
+          "date": "Septiembre 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "AHORA HAY CIELO",
+              "d": "Mirar para arriba mostraba un gris plano. Ahora hay un domo con degradé de horizonte a cenit, sol con disco y halo, y nubes que se mueven — media tarde a propósito, para que salir de la mina se sienta un final."
+            },
+            {
+              "t": "AHORA HAY PASTO",
+              "d": "El suelo del patio usaba la misma textura de roca que una galería: salías a la superficie y pisabas el mismo canto rodado gris de trescientos metros más abajo. Ahora hay pasto, generado solo en el nivel que sale afuera."
+            },
+            {
+              "t": "LA CASA TIENE TECHO",
+              "d": "Era un panel plano repetido. Ahora tiene techo a dos aguas con tejas, chimenea, alero que vuela y las ventanas colgadas de él."
+            },
+            {
+              "t": "EL MUNDO YA NO SE TERMINA EN EL CERCO",
+              "d": "Del otro lado no había nada. Ahora hay tres anillos de cerros a distintas distancias y árboles, con perspectiva aérea — le da escala al patio, que sin nada lejos el ojo no tenía con qué medir."
+            },
+            {
+              "t": "EL PATIO CRECIÓ Y SE REHIZO",
+              "d": "Pasa de 15 a 21 metros de lado. El pasto, la copa del árbol, el camino de losas y las tablas del cerco, rehechos uno por uno. Y un farol prendido al lado de la puerta, la única luz propia del patio."
+            },
+            {
+              "t": "535 TESTS EN VERDE",
+              "d": "Para poder testear el cielo (que se dibuja en la GPU) se escribió un visor que rasteriza la misma cuenta desde la JVM. El test del presupuesto de triángulos encontró dos bugs sin error visible: ochenta travesaños de cerco que no se dibujaban por pasarse del cupo de instancias, y un cerco que se comía 84.000 triángulos de más."
+            }
+          ]
         }
       ]
     }
