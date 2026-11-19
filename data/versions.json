@@ -1622,6 +1622,160 @@
           ]
         }
       ]
+    },
+    {
+      "id": "tanteo",
+      "name": "Tanteo",
+      "page": "tanteo/",
+      "color": "#FFA24B",
+      "platforms": [
+        "android"
+      ],
+      "versions": [
+        {
+          "id": "tanteo-1.4.0",
+          "platform": "android",
+          "version": "1.4.0",
+          "title": "CÁMARA Y DOBLE SERVIDA",
+          "note": "Revisión de la lectura de cartas, doble generala servida y Krypto de cuatro cartas.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/tanteo-v1.4.0/Tanteo-1.4.0.apk",
+          "date": "19 de noviembre de 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "KRYPTO",
+              "d": "Ingresá cuatro cartas del 1 al 12. La quinta carta marca el objetivo y se puede corregir."
+            },
+            {
+              "t": "CÁMARA",
+              "d": "Usá una foto en el 24 o en Krypto y corregí los valores detectados antes de resolver."
+            },
+            {
+              "t": "GENERALA",
+              "d": "Marcá la Generala o la Doble generala servida. La regla de la partida define si ganan al instante o suman 55 o 105 puntos."
+            }
+          ]
+        },
+        {
+          "id": "tanteo-1.3.0",
+          "platform": "android",
+          "version": "1.3.0",
+          "title": "SOLUCIONADOR DE KRYPTO",
+          "note": "Krypto se suma al catálogo junto a Veinticuatro.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/tanteo-v1.3.0/Tanteo-1.3.0.apk",
+          "date": "18 de noviembre de 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "KRYPTO",
+              "d": "Esta versión recibe cinco números y un objetivo del 1 al 25. La regla cambia en 1.4.0."
+            },
+            {
+              "t": "SOLUCIONES",
+              "d": "Elegí entre comprobar si se puede llegar al objetivo o ver las cuentas paso a paso."
+            }
+          ]
+        },
+        {
+          "id": "tanteo-1.2.1",
+          "platform": "android",
+          "version": "1.2.1",
+          "title": "GENERALA SERVIDA",
+          "note": "Acceso directo a la servida desde la planilla.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/tanteo-v1.2.1/Tanteo-1.2.1.apk",
+          "date": "18 de noviembre de 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "SERVIDA",
+              "d": "Elegí al jugador para marcar victoria directa o cargar 55 puntos según el ajuste de la partida."
+            },
+            {
+              "t": "PLANILLA",
+              "d": "Escalera, full y póker identifican las jugadas servidas. Podés deshacer la anotación."
+            }
+          ]
+        },
+        {
+          "id": "tanteo-1.2.0",
+          "platform": "android",
+          "version": "1.2.0",
+          "title": "TEMAS, IDIOMA Y ANIMACIONES",
+          "note": "Ajustes de apariencia y Veinticuatro en pantalla completa.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/tanteo-v1.2.0/Tanteo-1.2.0.apk",
+          "date": "18 de noviembre de 2026",
+          "active": true,
+          "experimental": false,
+          "details": [
+            {
+              "t": "AJUSTES",
+              "d": "Tema claro, oscuro o del sistema, español e inglés y control de animaciones."
+            },
+            {
+              "t": "CATÁLOGO",
+              "d": "Se priorizan juegos con tanteo habitual como Truco, Escoba, Generala, Burako y Canasta."
+            },
+            {
+              "t": "VEINTICUATRO",
+              "d": "Pantalla completa con una salida visible y animaciones de navegación y puntaje."
+            }
+          ]
+        },
+        {
+          "id": "tanteo-1.1.0",
+          "platform": "android",
+          "version": "1.1.0",
+          "title": "VEINTICUATRO EN TANTEO",
+          "note": "El 24 se integra al catálogo de juegos.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/tanteo-v1.1.0/Tanteo-1.1.0.apk",
+          "date": "18 de noviembre de 2026",
+          "active": false,
+          "experimental": false,
+          "details": [
+            {
+              "t": "VEINTICUATRO",
+              "d": "Comprobación de manos, cuentas paso a paso y lectura de naipes españoles con la cámara."
+            }
+          ]
+        },
+        {
+          "id": "tanteo-1.0.1",
+          "platform": "android",
+          "version": "1.0.1",
+          "title": "CORRECCIÓN DE INICIO",
+          "note": "Corrección de un cierre al abrir Tanteo.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/tanteo-v1.0.1/Tanteo-1.0.1.apk",
+          "date": "18 de noviembre de 2026",
+          "active": false,
+          "experimental": false,
+          "details": [
+            {
+              "t": "ANDROID",
+              "d": "Se corrige un fallo de inicialización que podía cerrar la app al entrar."
+            }
+          ]
+        },
+        {
+          "id": "tanteo-1.0.0",
+          "platform": "android",
+          "version": "1.0.0",
+          "title": "LANZAMIENTO INICIAL",
+          "note": "Primera edición de los marcadores de Tanteo para Android.",
+          "url": "https://github.com/maxgab201/Mggx-games/releases/download/tanteo-v1.0.0/Tanteo-1.0.0.apk",
+          "date": "18 de noviembre de 2026",
+          "active": false,
+          "experimental": false,
+          "details": [
+            {
+              "t": "MARCADORES",
+              "d": "Planillas y contadores para juegos de mesa, con partidas guardadas y marcador libre."
+            }
+          ]
+        }
+      ]
     }
   ]
 }
