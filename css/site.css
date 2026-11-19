@@ -124,7 +124,7 @@ html { scroll-padding-top: 100px; }
 .game-card:hover .card-img { transform: scale(1.05); }
 
 .btn, .btn-card, .btn-download, .btn-android, .btn-warning, .btn-warning-android,
-.btn-donate, .btn-skip, .btn-confirm, .contact-btn, .version-btn {
+.btn-free-download, .btn-support, .btn-confirm, .contact-btn, .version-btn {
     border-radius: var(--radius-s);
     transition:
         transform var(--dur-1) var(--ease-out),
@@ -134,13 +134,15 @@ html { scroll-padding-top: 100px; }
         box-shadow var(--dur-2) var(--ease-out) !important;
 }
 .btn:active, .btn-card:active, .btn-download:active, .btn-android:active,
-.btn-warning:active, .btn-donate:active, .btn-confirm:active, .contact-btn:active,
+.btn-warning:active, .btn-free-download:active, .btn-confirm:active, .contact-btn:active,
 .version-btn:active {
     transform: scale(0.97);
     transition-duration: 80ms;
 }
 .version-btn { border-radius: var(--radius-s); }
 .version-btn:hover { transform: translateX(4px); }
+
+.btn-support { text-decoration: none; }
 
 .feature-item {
     border-radius: 0 var(--radius-s) var(--radius-s) 0;

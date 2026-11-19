@@ -1,6 +1,6 @@
 // ============================================================
 //  MGGX GAMES — Flujo de descarga compartido por las páginas de
-//  producto (advertencia → elegir versión → donación → descarga).
+//  producto (advertencia → elegir versión → descarga y apoyo opcional).
 //
 //  Reemplaza los seis js/page.js por producto, que eran el mismo
 //  archivo copiado: idénticos salvo comentarios en gas-station,
@@ -46,17 +46,16 @@
     // cinco, y una página que agregue un modal nuevo no necesita que
     // nadie se acuerde de sumarlo acá.
     function cerrarTodo() {
+        pendingDownloadUrl = null;
         document.querySelectorAll('.modal').forEach(function (el) {
             el.style.display = 'none';
         });
     }
 
     function ejecutarDescarga() {
-        if (pendingDownloadUrl) {
-            window.location.href = pendingDownloadUrl;
-            pendingDownloadUrl = null;
-        }
+        var url = pendingDownloadUrl;
         cerrarTodo();
+        if (url) window.location.href = url;
     }
 
     window.abrirAdvertencia = function () { show('warningModal'); };
@@ -68,14 +67,9 @@
 
     // La llama render-versions.js al elegir una versión de la lista.
     window.iniciarDescarga = function (url) {
-        pendingDownloadUrl = url;
         cerrarTodo();
+        pendingDownloadUrl = url;
         show('donationModal');
-    };
-
-    window.donarYDescargar = function () {
-        window.open('https://ko-fi.com/mggxgames', '_blank');
-        ejecutarDescarga();
     };
 
     window.descargarSinDonar = ejecutarDescarga;
