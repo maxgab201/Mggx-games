@@ -4,7 +4,7 @@
 //  patch notes leyendo del version-store (base + Admin).
 // ============================================================
 
-import { ready, getActiveVersions, getLatest, getBadges, platformColor, PLATFORM_META } from './version-store.js';
+import { ready, getActiveVersions, getVersions, getLatest, getBadges, platformColor, PLATFORM_META } from './version-store.js';
 
 /**
  * Clase de dispositivo real del visitante, para avisar si intenta
@@ -117,14 +117,14 @@ export async function renderDownloadList(container, projectId, platform, { onDow
  * Historial completo de patch notes (todas las plataformas
  * mezcladas, ordenadas de más nueva a más vieja).
  */
-export async function renderPatchHistory(container, projectId) {
+export async function renderPatchHistory(container, projectId, { includeInactive = false } = {}) {
     const el = typeof container === 'string' ? document.getElementById(container) : container;
     if (!el) return;
     await ready;
 
     const platforms = Object.keys(PLATFORM_META);
-    let all = [];
-    for (const p of platforms) all = all.concat(getActiveVersions(projectId, p));
+    const versions = includeInactive ? getVersions : getActiveVersions;
+    const all = platforms.flatMap(p => versions(projectId, p));
     all.sort((a, b) => {
         // Mezcla por número de versión; a igual versión, PC primero
         const diff = String(b.version).localeCompare(String(a.version), undefined, { numeric: true });
@@ -149,7 +149,7 @@ export async function renderPatchHistory(container, projectId) {
             <div class="patch-box" data-reveal style="border-left-color:${color};">
                 <div class="patch-header">
                     <span class="patch-title">v${esc(v.version)} ${badges}</span>
-                    <span class="patch-date">${esc(v.date)}</span>
+                    <span class="patch-date">${esc(v.date)}${v.active ? '' : ' · APK no disponible'}</span>
                 </div>
                 <ul class="patch-list" style="--accent:${color};">${items}</ul>
             </div>`;
